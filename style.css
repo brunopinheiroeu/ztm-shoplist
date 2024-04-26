@@ -1,0 +1,16 @@
+h1 {
+  color: blue;
+}
+.title {
+  color: red;
+  font-size: 40pt;
+}
+.done {
+  text-decoration: line-through;
+}
+li {
+  list-style-type: none;
+}
+.erase {
+  display: none;
+}
