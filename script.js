@@ -19,9 +19,10 @@ function createListIten(){
     li.appendChild(checkbox);
     li.appendChild(document.createTextNode(input.value));
     li.appendChild(btDelete);
-    btDelete.appendChild(document.createTextNode("Delete"));
+    btDelete.textContent = "Delete";
     ul.appendChild(li);
     input.value = "";
+    showClear();
 }
 
 function addTaskClick(){
@@ -45,14 +46,25 @@ function isDone(check){
 
 function toErase(task){
     task.parentElement.remove();
+    showClear();
 }
 
 var btClear = document.getElementById("clear");
+
+function showClear(){
+    var liList = document.querySelectorAll("li").length;
+    if (liList>0){
+        btClear.classList.remove("invisible");
+    } else{
+        btClear.classList.add("invisible");
+    }
+}
 
 function clearAll(){
     var liList = document.querySelectorAll("li");
     for (let i = 0; i < liList.length; i++){
         liList[i].remove();
+        showClear();
     }
 }
 
